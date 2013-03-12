@@ -11,6 +11,8 @@ rail_wall = (slide_width - rail_width)/2;
 slide_thickness = 6;
 top_thickness = slide_thickness - rail_thickness - overhang_thickness;
 
+$fn=100;
+
 module grip()
 {
   difference()
