@@ -44,6 +44,7 @@ module flange()
   {
     cube([flange_height, flange_width, length]);
     translate([flange_height/2, -1, length/4]) bolt_hole();
+    translate([flange_height/2, -1, length/2]) bolt_hole();
     translate([flange_height/2, -1, 3*length/4]) bolt_hole();
   }
 }
@@ -63,6 +64,7 @@ module flanges()
     {
       flange();
       translate([flange_height/2, -1, length/4]) nut_hole();
+      translate([flange_height/2, -1, length/2]) nut_hole();
       translate([flange_height/2, -1, 3*length/4]) nut_hole();
     }
 }
