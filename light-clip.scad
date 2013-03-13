@@ -14,6 +14,10 @@ flange_width = 2;
 flange_height = 6;
 bolt_diameter = 1.5;
 nut_diameter = 3;
+hole_height = 33.5;
+hole_length = 4;
+hole_width = 4;
+hole_depth = 1;
 
 $fn=100;
 
@@ -63,6 +67,12 @@ module flanges()
     }
 }
 
+module hole()
+{
+  translate([-top_thickness - 1, -hole_width/2, hole_height])
+    cube([hole_depth + 1, hole_width, hole_length]);
+}
+
 module slide()
 {
   difference()
@@ -76,6 +86,13 @@ module slide()
 
 }
 
-translate([inner_r, 0, 0]) grip();
-translate([2 * inner_r, 0, 0]) flanges();
-translate([-slide_thickness, -slide_width/2, 0]) slide();
+difference()
+{
+  union()
+  {
+    translate([inner_r, 0, 0]) grip();
+    translate([2 * inner_r, 0, 0]) flanges();
+    translate([-slide_thickness, -slide_width/2, 0]) slide();
+  }
+  hole();
+}
