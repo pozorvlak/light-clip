@@ -30,9 +30,10 @@ module grip()
   difference()
   {
     cylinder(r=outer_r, h=length);
-    cylinder(r=inner_r, h=length);
-    translate([0, -gap/2, 0])
-      cube([outer_r, gap, length]);
+    translate([0, 0, -1])
+      cylinder(r=inner_r, h=length+2);
+    translate([0, -gap/2, -1])
+      cube([outer_r, gap, length+2]);
   }
 }
 
@@ -84,10 +85,10 @@ module slide()
   difference()
   {
     cube([slide_thickness, slide_width, length]);
-    translate([overhang_thickness, rail_wall, 0])
-      cube([rail_thickness, rail_width, length]);
-    translate([0, overhang + rail_wall, 0])
-      cube([overhang_thickness, slide_width-2*(rail_wall + overhang), length]);
+    translate([overhang_thickness, rail_wall, -1])
+      cube([rail_thickness, rail_width, length + 2]);
+    translate([-1, overhang + rail_wall, -1])
+      cube([overhang_thickness + 2, slide_width-2*(rail_wall + overhang), length + 2]);
   }
 
 }
