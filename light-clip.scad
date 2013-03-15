@@ -1,24 +1,28 @@
-outer_r = 14.9;
-inner_r = 12.5;
-length = 40;
-gap = 6;
-slide_width = 20;
-rail_width = 18;
-overhang = 2.6;
-rail_thickness = 2.5;
-overhang_thickness = 2.4;
+/* [Cylinder] */
+outer_r = 14.9; // Outer radius of the cylinder
+inner_r = 12.5; // Inner radius of the cylinder (diameter of flashlight + padding)
+length = 40; // length of cylinder
+gap = 6; // width of screw gap
+/* [Slide] */
+slide_width = 22.8; // overall width of slide
+rail_width = 18; // width of rail onto which slide should fit - you should probably add some wiggle room.
+overhang = 2.6; // how wide is the overhang under the rail?
+rail_thickness = 2.5; // how thick is the rail?
+overhang_thickness = 2.4; // how thick should the overhanging part of the slide be?
 rail_wall = (slide_width - rail_width)/2;
-slide_thickness = 7.3;
+slide_thickness = 7.3; // Overall thickness of the slide (inc. rail and overhang)
 top_thickness = slide_thickness - rail_thickness - overhang_thickness;
-flange_width = 2;
+/* [Flange and bolts] */
+flange_width = 2.4;
 flange_height = 12;
 bolt_diameter = 3.8;
 nut_diameter = 7.8;
-hole_height = 33.5;
+/* Hole in slide */
+hole_height = 33.5; // How far from the end of the slide is the spring-clip hole?
 hole_length = 4;
 hole_width = 4;
 hole_depth = 1;
-
+/* [Hidden] */
 $fn=100;
 
 module grip()
